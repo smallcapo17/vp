@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 
 export default function RootLayout({
   children,
@@ -11,6 +12,9 @@ export default function RootLayout({
       <body className="antialiased">
         <Navbar />
         <main className="pt-20">{children}</main>
+        <section id="contact">
+          <Footer />
+        </section>
       </body>
     </html>
   );

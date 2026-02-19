@@ -1,19 +1,50 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-gold-darkest: #3d2800;
+  --color-gold-dark: #7a5000;
+  --color-gold: #b8860b;
+  --color-gold-mid: #d4a017;
+  --color-gold-bright: #f5c842;
+  --color-gold-light: #fde68a;
+  --color-gold-lightest: #fff8dc;
+}
+
+@layer utilities {
+  .text-gold-shiny {
+    background: radial-gradient(
+      ellipse at center,
+      #f5c842 0%,
+      #d4a017 35%,
+      #b8860b 65%,
+      #7a5000 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gold-warm {
+    background: linear-gradient(
+      90deg,
+      #b8860b 0%,
+      #f5c842 35%,
+      #f5c842 65%,
+      #b8860b 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+html,
+body {
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,4 +56,47 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url("/bg.jpg");
+  background-size: cover;      /* cover the whole screen */
+  background-position: center; /* center the image */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional: keeps background fixed on scroll */
+}
+
+.back-link {
+  color: rgba(255,255,255,0.8);
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #f5c842;
+}
+
+.back-link:hover .back-arrow {
+  transform: translateX(-4px);
+}
+
+.back-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.ticket-btn {
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ticket-btn:hover {
+  background: rgba(184, 134, 11, 0.1);
+  border-color: #b8860b;
+  color: #b8860b;
+  box-shadow: 0 4px 20px rgba(184, 134, 11, 0.2);
+}
+
+.ticket-btn .ticket-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.ticket-btn:hover .ticket-arrow {
+  transform: translateX(4px);
 }
